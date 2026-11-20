@@ -1,6 +1,7 @@
 variable "vpc_cidr" {
     type = string
     description = "please provide VPC CIDR"
+
   
 }
 
@@ -75,4 +76,8 @@ variable "nat_gateway_tags" {
 }
 
 
-
+variable "is_peering_required" {
+    type = bool
+    default = true
+  
+}

@@ -9,6 +9,9 @@ resource "aws_vpc" "main" {
         common_name = local.common_name_suffix
     }
   )
+
+  enable_dns_support   = true
+  enable_dns_hostnames = true
   
 }
 
