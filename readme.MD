@@ -1,6 +1,6 @@
 ### Terraform aws vpc
 
-this module creates the following resources
+This module creates the following resources:
 
 * vpc
 * IDW
