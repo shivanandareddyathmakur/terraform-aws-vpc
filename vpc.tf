@@ -12,10 +12,11 @@ resource "aws_vpc" "main" {
 
 }
 
-resource "aws_default_vpc" "default" {
-  enable_dns_support   = true
-  enable_dns_hostnames = true
-}
+
+
+#aws ec2 modify-vpc-attribute \
+#  --vpc-id vpc-0dc6d8c33d6721a14 \
+#  --enable-dns-hostnames
 
 
 resource "aws_internet_gateway" "main" {
@@ -176,3 +177,22 @@ resource "aws_route_table_association" "database" {
   route_table_id = aws_route_table.database.id
 }
 
+resource "null_resource" "enable_dns_hostnames" {
+  provisioner "local-exec" {
+    command = "aws ec2 modify-vpc-attribute --vpc-id ${aws_vpc.main.id} --enable-dns-hostnames"
+  }
+
+  depends_on = [
+    aws_vpc.main
+  ]
+}
+
+resource "null_resource" "enable_dns_support" {
+  provisioner "local-exec" {
+    command = "aws ec2 modify-vpc-attribute --vpc-id ${aws_vpc.main.id} --enable-dns-support"
+  }
+
+  depends_on = [
+    aws_vpc.main
+  ]
+}
