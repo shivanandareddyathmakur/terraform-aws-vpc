@@ -1,16 +1,14 @@
 variable "vpc_cidr" {
-    type = string
-    description = "please provide VPC CIDR"
-
-  
+  type        = string
+  description = "Please provide VPC CIDR"
 }
 
 variable "project_name" {
-    type = string
-  
+  type = string
 }
+
 variable "environment" {
-    type = string 
+  type = string
 }
 
 variable "vpc_tags" {
@@ -31,6 +29,7 @@ variable "public_subnet_tags" {
     type = map
     default = {}
 }
+
 
 variable "private_subnet_cidrs" {
     type = list
@@ -75,9 +74,7 @@ variable "nat_gateway_tags" {
     default = {}
 }
 
-
 variable "is_peering_required" {
     type = bool
     default = true
-  
 }
