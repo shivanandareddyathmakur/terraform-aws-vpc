@@ -38,3 +38,9 @@ This module creates the following resources:
 * database_subnet_ids - you can see the subnet ids attached to database subnets
 
 
+### run this to enable hostnames on default peer
+* aws ec2 modify-vpc-attribute \
+    * --vpc-id vpc-058cf8526ca6ad9f0 \
+    * --enable-dns-hostnames
+
+
